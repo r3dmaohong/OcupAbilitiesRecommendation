@@ -7,12 +7,17 @@ options(stringsAsFactors = FALSE)
 
 
 ocup = read.csv(file.choose())
-ocup = ocup[which(ocup$職務X職能指標關聯性=='高'),]
+#ocup = ocup[which(ocup$職務X職能指標關聯性=='高'),]
 
 job = unique(ocup$職務小類名稱)
 
 ocup_r = data.frame('職務名稱'=character(),'對應職務名稱'=character(),'相似度'=numeric())
 
+##以main為主體
+##x為nrow
+##去修改為跑全部
+
+##
 ocup_r[1:length(job)-1,1] = job[1]
 ocup_r[1:length(job)-1,2] = job[2:length(job)]
 
@@ -34,4 +39,6 @@ for(i in 1:nrow(ocup_r)){
 }
 
 ocup_r = ocup_r[order(-ocup_r[,3]),]
+
+##
 write.csv(ocup_r,'測試3.csv',row.names=F)
