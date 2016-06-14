@@ -40,6 +40,7 @@ for(n_job in 1:length(job)){
   }
   
   ocup_r = ocup_r[order(-ocup_r[,3]),]
+  ocup_r$相似度 = ocup_r$相似度[1]
   total_ocup_r = rbind(total_ocup_r,ocup_r)
 }
 
